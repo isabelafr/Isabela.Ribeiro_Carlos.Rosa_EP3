@@ -38,21 +38,30 @@ def CalculaBMI(ReturnWeight,ReturnHeight2):
     BMI=(ReturnWeight())/(ReturnHeight2())  
     return BMI
 
+def change_float_CalculaBMI_to_str():
+    change1=(CalculaBMI(ReturnWeight,ReturnHeight2))//1
+    changed=str(change1)
+    return changed
+print(type(change_float_CalculaBMI_to_str()))
+
 def ReturnTypeBMI():
     if CalculaBMI(ReturnWeight,ReturnHeight2)<18.5:
-        print("Você está abaixo do peso")
+        return("Você está abaixo do peso")
     elif 18.5<=CalculaBMI(ReturnWeight,ReturnHeight2)<25:
-        print("Você tem peso ideal")
+        return("Você tem peso ideal")
     elif 25<=CalculaBMI(ReturnWeight,ReturnHeight2)<30:
-        print("Você esta ligeiramente acima do peso")
+        return("Você esta ligeiramente acima do peso")
     else:
-        print("Você esta muito acima do peso")
+        return("Você esta muito acima do peso")
+#print(ReturnTypeBMI(),",pois o seu indice de massa corporal é de ",CalculaBMI(ReturnWeight,ReturnHeight2))
+
 
 def write_in_file():
-    creat_file=open("resultados.txt","r+")
-    contador=1
-    for linha in creat_file.readlines():
-        print(ReturnTypeBMI(),"pois o seu indice de massa corporal é de ",CalculaBMI(ReturnWeight,ReturnHeight2))      
+    create_file=open("resultados.txt","r+")
+    adicionar ='\n'.join([ReturnTypeBMI(),"pois o seu indice de massa corporal é de ",change_float_CalculaBMI_to_str()])
+    create_file.writelines(adicionar+'\n')
+write_in_file()
+
 
     
 UserFoodGramsWeek={}
