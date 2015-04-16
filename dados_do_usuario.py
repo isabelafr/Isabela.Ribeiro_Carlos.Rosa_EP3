@@ -47,7 +47,12 @@ def ReturnTypeBMI():
         print("Você esta ligeiramente acima do peso")
     else:
         print("Você esta muito acima do peso")
-        
+
+def write_in_file():
+    creat_file=open("resultados.txt","r+")
+    contador=1
+    for linha in creat_file.readlines():
+        print(ReturnTypeBMI(),"pois o seu indice de massa corporal é de ",CalculaBMI(ReturnWeight,ReturnHeight2))      
 
     
 UserFoodGramsWeek={}
@@ -69,7 +74,7 @@ NutritionFactsProteinsPerGram=alimentosproteinascsv()
 NutritionFactsCarboidratesPerGram=alimentoscarboidratescsv()
 NutritionFactsFatPerGram=alimentosfatcsv()
 #print(NutritionFactsCalPerGram)
-print(NutritionFactsProteinsPerGram)
+#print(NutritionFactsProteinsPerGram)
 
 def usuariocarboidratoscsv():
     x=0
@@ -119,7 +124,7 @@ def usuarioproteinascsv():
             UserDayProteinsWeek[date]+=NutritionFactsProteinsPerGram[food]*grams
         else:
             UserDayProteinsWeek[date]=NutritionFactsProteinsPerGram[food]*grams  
-    print("UserDayProteinsWeek: ",UserDayProteinsWeek)
+    #print("UserDayProteinsWeek: ",UserDayProteinsWeek)
 usuarioproteinascsv()
 
 def usuariofatcsv():
