@@ -42,7 +42,7 @@ def change_float_CalculaBMI_to_str():
     change1=(CalculaBMI(ReturnWeight,ReturnHeight2))//1
     changed=str(change1)
     return changed
-print(type(change_float_CalculaBMI_to_str()))
+#print(change_float_CalculaBMI_to_str())
 
 def ReturnTypeBMI():
     if CalculaBMI(ReturnWeight,ReturnHeight2)<18.5:
@@ -60,8 +60,6 @@ def write_in_file():
     create_file=open("resultados.txt","r+")
     adicionar ='\n'.join([ReturnTypeBMI(),"pois o seu indice de massa corporal é de ",change_float_CalculaBMI_to_str()])
     create_file.writelines(adicionar+'\n')
-write_in_file()
-
 
     
 UserFoodGramsWeek={}
@@ -84,6 +82,8 @@ NutritionFactsCarboidratesPerGram=alimentoscarboidratescsv()
 NutritionFactsFatPerGram=alimentosfatcsv()
 #print(NutritionFactsCalPerGram)
 #print(NutritionFactsProteinsPerGram)
+
+write_in_file()
 
 def usuariocarboidratoscsv():
     x=0

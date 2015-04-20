@@ -36,38 +36,74 @@ num_days_protein = len(list(UserDayProteinsWeek.keys()))
 num_days_carboidrates = len(list(UserDayCarboidratesWeek.values()))
 num_days_fat=len(list(UserDayFatWeek.values()))
 
-label=["Segunda","Terca","Quarta","Quinta","Sexta","Sabado","Domingo"]
-plt.plot(list(range(num_days_cal)),list(UserDayCaloriesWeek.values()),list(range(num_days_protein)),list(UserDayProteinsWeek.values()),list(range(num_days_carboidrates)),list(UserDayCarboidratesWeek.values()),list(range(num_days_fat)),list(UserDayFatWeek.values()))
-plt.xlabel("Dias da semana")
-plt.ylabel("Calories, Proteinas, Carboidratos e Gordura")
-plt.title("Quantidade ao longo da semana")
-plt.xticks(range(len(label)), label)
-plt.show()
 
-plt.plot(list(range(num_days_cal)),list(UserDayCaloriesWeek.values()))
+days=list(UserDayCaloriesWeek.keys())
+days.sort()
+
+calories_values=[]
+for d in days:
+    calories_values.append(UserDayCaloriesWeek[d])
+print(UserDayCaloriesWeek)
+print("UserDayCaloriesWeek",days)
+print("UserDayCaloriesWeek",calories_values)
+
+plt.plot(list(range(num_days_cal)),calories_values)
 plt.xlabel("Dias da semana")
 plt.ylabel("Calories")
 plt.title("Quantidade de Calorias ao longo da semana")
-plt.xticks(range(len(label)), label)
+plt.xticks(range(len(days)), days)
 plt.show()
 
-plt.plot(list(range(num_days_protein)),list(UserDayProteinsWeek.values()))
+
+proteins_values=[]
+for d in days:
+    proteins_values.append(UserDayProteinsWeek[d])
+print("UserDayProteinsWeek",UserDayProteinsWeek)
+print("UserDayProteinsWeek",days)
+print("UserDayProteinsWeek",proteins_values)
+
+plt.plot(list(range(num_days_protein)),proteins_values)
 plt.xlabel("Dias da semana")
 plt.ylabel("Proteinas")
 plt.title("Quantidade de proteinas ao longo da semana")
-plt.xticks(range(len(label)), label)
+plt.xticks(range(len(days)), days)
 plt.show()
 
-plt.plot(list(range(num_days_carboidrates)),list(UserDayCarboidratesWeek.values()))
+
+carboidrates_values=[]
+for d in days:
+    carboidrates_values.append(UserDayCarboidratesWeek[d])
+print("UserDayCarboidratesWeek",UserDayCarboidratesWeek)
+print("UserDayCarboidratesWeek",days)
+print("UserDayCarboidratesWeek",carboidrates_values)
+
+
+plt.plot(list(range(num_days_carboidrates)),carboidrates_values)
 plt.xlabel("Dias da semana")
 plt.ylabel("Carboidratos")
 plt.title("Quantidade de carboidratos ao longo da semana")
-plt.xticks(range(len(label)), label)
+plt.xticks(range(len(days)), days)
 plt.show()
 
-plt.plot(list(range(num_days_fat)),list(UserDayFatWeek.values()))
+
+fat_values=[]
+for d in days:
+    fat_values.append(UserDayFatWeek[d])
+print("UserDayFatWeek",UserDayFatWeek)
+print("UserDayFatWeek",days)
+print("UserDayFatWeek",fat_values)
+
+plt.plot(list(range(num_days_fat)),fat_values)
 plt.xlabel("Dias da semana")
 plt.ylabel("Gordura")
 plt.title("Quantidade de gordura ao longo da semana")
-plt.xticks(range(len(label)), label)
+plt.xticks(range(len(days)), days)
+plt.show()
+
+#label=["Segunda","Terca","Quarta","Quinta","Sexta","Sabado","Domingo"]
+plt.plot(list(range(num_days_cal)),calories_values,list(range(num_days_protein)),proteins_values,list(range(num_days_carboidrates)),carboidrates_values,list(range(num_days_fat)),fat_values)
+plt.xlabel("Dias da semana")
+plt.ylabel("Calories, Proteinas, Carboidratos e Gordura")
+plt.title("Quantidade ao longo da semana")
+plt.xticks(range(len(days)), days)
 plt.show()
